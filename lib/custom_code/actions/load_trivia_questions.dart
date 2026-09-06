@@ -181,8 +181,7 @@ Future<List<TriviaQuestionStruct>> loadTriviaQuestions(
 /// Descarga una URL y devuelve el texto, o null si falla.
 Future<String?> _descargar(String assetPath) async {
   try {
-    // Carga local desde los assets empaquetados (100% offline).
-    return await rootBundle.loadString(assetPath);
+    return await rootBundle.loadString(assetPath); // local, 100% offline
   } catch (_) {
     return null;
   }

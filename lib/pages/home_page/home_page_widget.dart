@@ -68,7 +68,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
               ClipRRect(
                 borderRadius: BorderRadius.circular(8.0),
                 child: Image.asset(
-                  'assets/images/background.png',
+                  'assets/images/Background.png',
                   width: double.infinity,
                   height: double.infinity,
                   fit: BoxFit.cover,
@@ -194,6 +194,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   FFAppState().isOnlineMode = true;
                                   FFAppState().gameMode = '\'online\'';
                                   safeSetState(() {});
+                                  await actions.showMultiplayerSetup(
+                                    context,
+                                  );
                                 },
                                 child: Container(
                                   width: 150.0,
@@ -1531,6 +1534,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   FFAppState().isOnlineMode = true;
                                   FFAppState().gameMode = '\'online\'';
                                   safeSetState(() {});
+                                  await actions.showMultiplayerSetup(
+                                    context,
+                                  );
                                 },
                                 child: Container(
                                   width: 150.0,

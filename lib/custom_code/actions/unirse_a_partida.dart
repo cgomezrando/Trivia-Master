@@ -11,15 +11,39 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
+/// Se une a una partida existente buscándola por su código de 4 dígitos.
+///
+/// Devuelve el ID del documento de la partida si todo sale bien. Si algo
+/// falla, en vez de devolver siempre '' (que hacía imposible saber la causa
+/// real), devuelve un texto que empieza por "ERR_" con el motivo exacto:
+///   ERR_NOAUTH        -> no se pudo autenticar al usuario
+///   ERR_NOTFOUND      -> no existe ninguna partida con ese código
+///   ERR_NOTLOBBY      -> la partida existe pero ya empezó o terminó
+///   ERR_FULL          -> la sala ya tiene el máximo de jugadores
+///   ERR_EXCEPTION::xx -> excepción real de Firebase (permisos, red, etc.)
+/// show_multiplayer_setup.dart interpreta estos códigos para mostrar un
+/// mensaje útil y así poder diagnosticar el fallo real.
 Future<String> unirseAPartida(
   String codigo,
   String nombre,
 ) async {
   try {
-    final user = FirebaseAuth.instance.currentUser;
+    var user = FirebaseAuth.instance.currentUser;
+    if (user == null) {
+      // La sesión anónima a veces todavía no ha terminado de iniciarse
+      // (por ejemplo si el usuario abre la app y toca muy rápido). En vez
+      // de fallar directamente, intentamos iniciar sesión anónima aquí
+      // mismo antes de rendirnos.
+      try {
+        final credential = await FirebaseAuth.instance.signInAnonymously();
+        user = credential.user;
+      } catch (e) {
+        debugPrint('Error al reintentar login anónimo: $e');
+      }
+    }
     if (user == null) {
       debugPrint('Error: No hay usuario autenticado');
-      return '';
+      return 'ERR_NOAUTH';
     }
 
     final db = FirebaseFirestore.instance;
@@ -32,7 +56,7 @@ Future<String> unirseAPartida(
 
     if (querySnapshot.docs.isEmpty) {
       debugPrint('Error: Partida no encontrada con código: $codigo');
-      return '';
+      return 'ERR_NOTFOUND';
     }
 
     final docRef = querySnapshot.docs.first.reference;
@@ -40,18 +64,19 @@ Future<String> unirseAPartida(
 
     if (partidaData['estado'] != 'lobby') {
       debugPrint('Error: La partida no está en lobby');
-      return '';
+      return 'ERR_NOTLOBBY';
     }
 
     final jugadoresSnapshot = await docRef.collection('jugadores').get();
     if (jugadoresSnapshot.docs.length >= (partidaData['maxJugadores'] ?? 8)) {
       debugPrint('Error: Máximo de jugadores alcanzado');
-      return '';
+      return 'ERR_FULL';
     }
 
     await docRef.collection('jugadores').doc(user.uid).set({
       'nombre': nombre,
       'puntos': 0,
+      'puntosRonda': 0,
       'esAnfitrion': false,
       'respuestaIndice': -1,
       'respuestaEnPregunta': -1,
@@ -65,6 +90,6 @@ Future<String> unirseAPartida(
     return docRef.id;
   } catch (e) {
     debugPrint('Error al unirse a partida: $e');
-    return '';
+    return 'ERR_EXCEPTION::$e';
   }
 }

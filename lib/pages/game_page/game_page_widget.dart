@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
+import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -102,86 +103,89 @@ class _GamePageWidgetState extends State<GamePageWidget> {
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 20.0, 0.0, 0.0, 0.0),
-                            child: CircularPercentIndicator(
-                              percent: ((FFAppState().currentQuestionIndex == 0)
-                                      ? 0.0
-                                      : ((FFAppState()
-                                                  .players
-                                                  .elementAtOrNull(FFAppState()
-                                                      .currentPlayerIndex)
-                                                  ?.score ??
-                                              0) /
-                                          FFAppState().currentQuestionIndex))
-                                  .clamp(0.0, 1.0),
-                              radius: 50.0,
-                              lineWidth: 12.0,
-                              animation: true,
-                              animateFromLastPercent: true,
-                              progressColor: Color(0xFF00FF06),
-                              backgroundColor: Color(0xFF263142),
-                              center: Text(
-                                valueOrDefault<String>(
-                                  '${(FFAppState().currentQuestionIndex == 0) ? 0 : ((((FFAppState().players.elementAtOrNull(FFAppState().currentPlayerIndex)?.score ?? 0) / FFAppState().currentQuestionIndex).clamp(0.0, 1.0)) * 100).round()}%',
-                                  '0%',
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                CircularPercentIndicator(
+                                  percent: ((FFAppState()
+                                                  .currentQuestionIndex ==
+                                              0)
+                                          ? 0.0
+                                          : ((FFAppState()
+                                                      .players
+                                                      .elementAtOrNull(
+                                                          FFAppState()
+                                                              .currentPlayerIndex)
+                                                      ?.score ??
+                                                  0) /
+                                              FFAppState()
+                                                  .currentQuestionIndex))
+                                      .clamp(0.0, 1.0),
+                                  radius: 50.0,
+                                  lineWidth: 12.0,
+                                  animation: true,
+                                  animateFromLastPercent: true,
+                                  progressColor: Color(0xFF00FF06),
+                                  backgroundColor: Color(0xFF263142),
+                                  center: Text(
+                                    '${functions.progresoPuntuacion(FFAppState().currentQuestionIndex, FFAppState().players.elementAtOrNull(FFAppState().currentPlayerIndex)?.score).toString()}%',
+                                    textAlign: TextAlign.center,
+                                    style: FlutterFlowTheme.of(context)
+                                        .headlineSmall
+                                        .override(
+                                          font: GoogleFonts.interTight(
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .headlineSmall
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .headlineSmall
+                                                    .fontStyle,
+                                          ),
+                                          color: Colors.white,
+                                          fontSize: 16.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .headlineSmall
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .headlineSmall
+                                                  .fontStyle,
+                                        ),
+                                  ),
                                 ),
-                                style: FlutterFlowTheme.of(context)
-                                    .headlineSmall
-                                    .override(
-                                      font: GoogleFonts.interTight(
+                                Text(
+                                  'de aciertos',
+                                  textAlign: TextAlign.center,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        font: GoogleFonts.inter(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                        ),
+                                        color: Colors.white,
+                                        letterSpacing: 0.0,
                                         fontWeight: FlutterFlowTheme.of(context)
-                                            .headlineSmall
+                                            .bodyMedium
                                             .fontWeight,
                                         fontStyle: FlutterFlowTheme.of(context)
-                                            .headlineSmall
+                                            .bodyMedium
                                             .fontStyle,
                                       ),
-                                      color: Colors.white,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FlutterFlowTheme.of(context)
-                                          .headlineSmall
-                                          .fontWeight,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .headlineSmall
-                                          .fontStyle,
-                                    ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 0.0, 0.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Align(
-                            alignment: AlignmentDirectional(-1.0, -1.0),
-                            child: Text(
-                              valueOrDefault<String>(
-                                '${(int idx, int total) {
-                                  return 'Pregunta ${idx + 1} de $total';
-                                }(FFAppState().currentQuestionIndex, FFAppState().questions.length)}',
-                                'Pregunta X de 10',
-                              ),
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    font: GoogleFonts.inter(
-                                      fontWeight: FontWeight.w600,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontStyle,
-                                    ),
-                                    color: Colors.white,
-                                    fontSize: 22.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w600,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .fontStyle,
-                                  ),
+                                ),
+                              ],
                             ),
                           ),
                         ],

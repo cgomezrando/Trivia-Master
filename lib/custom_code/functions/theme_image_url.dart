@@ -12,20 +12,21 @@ import '/flutter_flow/uploaded_file.dart';
 import '/backend/schema/structs/index.dart';
 
 String themeImageUrl(String theme) {
-  const String base = 'assets/images';
+  const String base =
+      'assets/images';
 
   const String iconoSecundaria =
-      '$base/7cujadfehb8w.png';
+      '$base/Secundaria-removebg-preview.png';
   const String iconoHistoria = '$base/pp1jx13flwpr.png';
 
   final Map<String, String> imagenes = {
-    'FUTBOL': '$base/dogrcpfk5iw7.png',
-    'MUNDIALES': '$base/dyuznxqc3crw.png',
-    'REGUETON': '$base/6lzfweb9jjgf.png',
-    'MADRIDISTA': '$base/wmp1dscls0lp.png',
-    'BARCELONISTA': '$base/1emmw5u6j5vc.png',
-    'Cuerpo humano': '$base/iprk6v0j0bwy.png',
-    'INVENTORES': '$base/r6t8mv0ja106.png',
+    'FUTBOL': '$base/Futbol.png',
+    'MUNDIALES': '$base/mundiales.png',
+    'REGUETON': '$base/Regueton.png',
+    'MADRIDISTA': '$base/realmadrid.png',
+    'BARCELONISTA': '$base/barcelona.png',
+    'Cuerpo humano': '$base/Esqueleto-removebg-preview.png',
+    'INVENTORES': '$base/Inventores-removebg-preview.png',
     'HISTORIA DE ESPAÑA': iconoHistoria,
     'ESO Matemáticas': iconoSecundaria,
     'ESO Lengua': iconoSecundaria,

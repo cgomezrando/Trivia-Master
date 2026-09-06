@@ -12,6 +12,15 @@ import 'dart:math';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
+/// Crea una partida nueva y devuelve el ID del documento.
+///
+/// Igual que en unirseAPartida, si algo falla se devuelve un texto que
+/// empieza por "ERR_" con el motivo exacto en vez de siempre '', para poder
+/// saber qué ha pasado realmente (antes cualquier fallo -incluido un
+/// permiso denegado de Firestore- se veía igual que "no se pudo crear").
+///   ERR_NOAUTH        -> no se pudo autenticar al usuario
+///   ERR_SINPREGUNTAS  -> no hay preguntas para los temas elegidos
+///   ERR_EXCEPTION::xx -> excepción real de Firebase (permisos, red, etc.)
 Future<String> crearPartida(
   List<String> selectedThemes,
   int questionCount,
@@ -21,17 +30,25 @@ Future<String> crearPartida(
   String hostName,
 ) async {
   try {
-    final user = FirebaseAuth.instance.currentUser;
+    var user = FirebaseAuth.instance.currentUser;
+    if (user == null) {
+      try {
+        final credential = await FirebaseAuth.instance.signInAnonymously();
+        user = credential.user;
+      } catch (e) {
+        debugPrint('Error al reintentar login anónimo: $e');
+      }
+    }
     if (user == null) {
       debugPrint('Error: No hay usuario autenticado');
-      return '';
+      return 'ERR_NOAUTH';
     }
 
     final preguntas = await loadTriviaQuestions(
         selectedThemes, questionCount, shuffleAnswers);
     if (preguntas.isEmpty) {
       debugPrint('Error: No se cargaron preguntas');
-      return '';
+      return 'ERR_SINPREGUNTAS';
     }
 
     final db = FirebaseFirestore.instance;
@@ -62,6 +79,7 @@ Future<String> crearPartida(
     await docRef.collection('jugadores').doc(user.uid).set({
       'nombre': hostName.trim().isEmpty ? 'Anfitrión' : hostName.trim(),
       'puntos': 0,
+      'puntosRonda': 0,
       'esAnfitrion': true,
       'respuestaIndice': -1,
       'respuestaEnPregunta': -1,
@@ -75,7 +93,7 @@ Future<String> crearPartida(
     return docRef.id;
   } catch (e) {
     debugPrint('Error al crear partida: $e');
-    return '';
+    return 'ERR_EXCEPTION::$e';
   }
 }
 
