@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 
 import 'dart:convert' show json, utf8;
 import 'dart:math' show Random;
-import 'package:flutter/services.dart' show rootBundle;
+import 'package:http/http.dart' as http;
 
 // ─────────────────────────────────────────────────────────────────────────
 //  MAPA TEMA -> URL DEL JSON
@@ -20,33 +20,39 @@ import 'package:flutter/services.dart' show rootBundle;
 // ─────────────────────────────────────────────────────────────────────────
 const Map<String, String> _themeToUrl = {
   'FUTBOL':
-      'assets/jsons/futbol.json',
+      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/trivia-master-48ll8w/assets/yu036vkksib1/futbol.json',
   'MUNDIALES':
-      'assets/jsons/mundiales.json',
+      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/trivia-master-48ll8w/assets/zto81csj21mj/mundiales.json',
   'REGUETON':
-      'assets/jsons/regueton.json',
+      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/trivia-master-48ll8w/assets/9wq1nkrcr41w/regueton.json',
   'MADRIDISTA':
-      'assets/jsons/Madridista.json',
+      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/trivia-master-48ll8w/assets/35xkrgdqqxpl/Madridista.json',
   'BARCELONISTA':
-      'assets/jsons/barcelonista.json',
+      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/trivia-master-48ll8w/assets/7ufzdqb63k2q/barcelonista.json',
   'Cuerpo humano':
-      'assets/jsons/cuerpohumano.json',
+      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/trivia-master-48ll8w/assets/8wiod49wrzr4/cuerpohumano.json',
   'INVENTORES':
-      'assets/jsons/inventores.json',
+      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/trivia-master-48ll8w/assets/0x3gny9puzli/inventores.json',
   'HISTORIA DE ESPAÑA':
-      'assets/jsons/historia_de_espana.json',
+      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/trivia-master-48ll8w/assets/7c73w5722kqo/historia_de_espana.json',
+  'CINE':
+      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/trivia-master-48ll8w/assets/dvvg71t3wshh/cine.json',
+  'CULTURA GENERAL':
+      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/trivia-master-48ll8w/assets/i6374enp9ir7/cultura.json',
+  'NATURALEZA':
+      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/trivia-master-48ll8w/assets/atjbne64f7v1/naturaleza.json',
 
   // ── Temas de ESO (se seleccionan desde la ventana de SECUNDARIA) ──
   'ESO Matemáticas':
-      'assets/jsons/eso_matematicas.json',
+      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/trivia-master-48ll8w/assets/3akrih5uz4f4/eso_matematicas.json',
   'ESO Lengua':
-      'assets/jsons/eso_lengua.json',
+      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/trivia-master-48ll8w/assets/igg9akgc6sx8/eso_lengua.json',
   'ESO Geografía e Historia':
-      'assets/jsons/eso_geografiaehistoria.json',
+      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/trivia-master-48ll8w/assets/uwnp5z8pvx3u/eso_geografiaehistoria.json',
   'ESO Física y Química':
-      'assets/jsons/eso_fisicaquimica.json',
+      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/trivia-master-48ll8w/assets/qjmyh347z0gi/eso_fisicaquimica.json',
   'ESO Biología y Geología':
-      'assets/jsons/eso_biologiageologia.json',
+      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/trivia-master-48ll8w/assets/xihfiat0wg6p/eso_biologiageologia.json',
 };
 
 /// Descarga las preguntas de los temas seleccionados, las une, elimina
@@ -179,9 +185,11 @@ Future<List<TriviaQuestionStruct>> loadTriviaQuestions(
 }
 
 /// Descarga una URL y devuelve el texto, o null si falla.
-Future<String?> _descargar(String assetPath) async {
+Future<String?> _descargar(String url) async {
   try {
-    return await rootBundle.loadString(assetPath); // local, 100% offline
+    final resp = await http.get(Uri.parse(url));
+    if (resp.statusCode != 200) return null;
+    return utf8.decode(resp.bodyBytes); // acentos y ñ correctos
   } catch (_) {
     return null;
   }

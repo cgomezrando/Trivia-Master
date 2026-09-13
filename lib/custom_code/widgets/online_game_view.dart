@@ -496,7 +496,7 @@ class _OnlineGameViewState extends State<OnlineGameView> {
                       padding: EdgeInsetsDirectional.fromSTEB(0, 0, 30, 0),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(8),
-                        child: Image.asset(
+                        child: Image.network(
                           _imagenTema(pregunta['theme'] as String?),
                           width: 180,
                           height: 180,
@@ -991,25 +991,25 @@ class _OnlineGameViewState extends State<OnlineGameView> {
   String _imagenTema(String? tema) {
     switch (tema ?? '') {
       case 'FUTBOL':
-        return 'assets/images/Futbol.png';
+        return 'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/trivia-master-48ll8w/assets/dogrcpfk5iw7/Futbol.png';
       case 'MUNDIALES':
-        return 'assets/images/mundiales.png';
+        return 'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/trivia-master-48ll8w/assets/dyuznxqc3crw/mundiales.png';
       case 'REGUETON':
-        return 'assets/images/Regueton.png';
+        return 'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/trivia-master-48ll8w/assets/6lzfweb9jjgf/Regueton.png';
       case 'MADRIDISTA':
-        return 'assets/images/realmadrid.png';
+        return 'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/trivia-master-48ll8w/assets/wmp1dscls0lp/realmadrid.png';
       case 'BARCELONISTA':
-        return 'assets/images/barcelona.png';
+        return 'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/trivia-master-48ll8w/assets/1emmw5u6j5vc/barcelona.png';
       case 'Cuerpo humano':
-        return 'assets/images/Esqueleto-removebg-preview.png';
+        return 'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/trivia-master-48ll8w/assets/iprk6v0j0bwy/Esqueleto-removebg-preview.png';
       case 'INVENTORES':
-        return 'assets/images/Inventores-removebg-preview.png';
+        return 'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/trivia-master-48ll8w/assets/r6t8mv0ja106/Inventores-removebg-preview.png';
       case 'HISTORIA DE ESPAÑA':
-        return 'assets/images/pp1jx13flwpr.png';
+        return 'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/trivia-master-48ll8w/assets/72hvygvjp67v/historia.png';
       case 'ESO Geografía e Historia':
-        return 'assets/images/pp1jx13flwpr.png';
+        return 'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/trivia-master-48ll8w/assets/72hvygvjp67v/historia.png';
       default:
-        return 'assets/images/Secundaria-removebg-preview.png';
+        return 'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/trivia-master-48ll8w/assets/7cujadfehb8w/Secundaria-removebg-preview.png';
     }
   }
 }

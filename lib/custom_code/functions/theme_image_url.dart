@@ -13,21 +13,24 @@ import '/backend/schema/structs/index.dart';
 
 String themeImageUrl(String theme) {
   const String base =
-      'assets/images';
+      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/trivia-master-48ll8w/assets';
 
   const String iconoSecundaria =
-      '$base/Secundaria-removebg-preview.png';
-  const String iconoHistoria = '$base/pp1jx13flwpr.png';
+      '$base/7cujadfehb8w/Secundaria-removebg-preview.png';
+  const String iconoHistoria = '$base/72hvygvjp67v/historia.png';
 
   final Map<String, String> imagenes = {
-    'FUTBOL': '$base/Futbol.png',
-    'MUNDIALES': '$base/mundiales.png',
-    'REGUETON': '$base/Regueton.png',
-    'MADRIDISTA': '$base/realmadrid.png',
-    'BARCELONISTA': '$base/barcelona.png',
-    'Cuerpo humano': '$base/Esqueleto-removebg-preview.png',
-    'INVENTORES': '$base/Inventores-removebg-preview.png',
+    'FUTBOL': '$base/dogrcpfk5iw7/Futbol.png',
+    'MUNDIALES': '$base/dyuznxqc3crw/mundiales.png',
+    'REGUETON': '$base/6lzfweb9jjgf/Regueton.png',
+    'MADRIDISTA': '$base/6zw26ht4tbqe/madridista.png',
+    'BARCELONISTA': '$base/m0b9s4o268n0/Barcelonista.png',
+    'Cuerpo humano': '$base/iprk6v0j0bwy/Esqueleto-removebg-preview.png',
+    'INVENTORES': '$base/r6t8mv0ja106/Inventores-removebg-preview.png',
     'HISTORIA DE ESPAÑA': iconoHistoria,
+    'CINE': '$base/garx7xotl76o/cine.png',
+    'CULTURA GENERAL': '$base/33iyxcuatl8b/cultura_general.png',
+    'NATURALEZA': '$base/oegjaui97qf9/naturaleza.png',
     'ESO Matemáticas': iconoSecundaria,
     'ESO Lengua': iconoSecundaria,
     'ESO Geografía e Historia': iconoHistoria,

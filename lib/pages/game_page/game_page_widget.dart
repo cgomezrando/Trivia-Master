@@ -316,11 +316,15 @@ class _GamePageWidgetState extends State<GamePageWidget> {
                                 0.0, 0.0, 50.0, 0.0),
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(8.0),
-                              child: Image.asset(
-                                (FFAppState().questions.elementAtOrNull(FFAppState().currentQuestionIndex)?.theme ??
+                              child: Image.network(
+                                (FFAppState()
+                                                .questions
+                                                .elementAtOrNull(FFAppState()
+                                                    .currentQuestionIndex)
+                                                ?.theme ??
                                             '') ==
                                         'FUTBOL'
-                                    ? 'assets/images/Futbol.png'
+                                    ? 'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/trivia-master-48ll8w/assets/dogrcpfk5iw7/Futbol.png'
                                     : (FFAppState()
                                                     .questions
                                                     .elementAtOrNull(FFAppState()
@@ -328,7 +332,7 @@ class _GamePageWidgetState extends State<GamePageWidget> {
                                                     ?.theme ??
                                                 '') ==
                                             'MUNDIALES'
-                                        ? 'assets/images/mundiales.png'
+                                        ? 'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/trivia-master-48ll8w/assets/dyuznxqc3crw/mundiales.png'
                                         : (FFAppState()
                                                         .questions
                                                         .elementAtOrNull(FFAppState()
@@ -336,34 +340,33 @@ class _GamePageWidgetState extends State<GamePageWidget> {
                                                         ?.theme ??
                                                     '') ==
                                                 'REGUETON'
-                                            ? 'assets/images/Regueton.png'
-                                            : (FFAppState()
-                                                            .questions
-                                                            .elementAtOrNull(
-                                                                FFAppState()
-                                                                    .currentQuestionIndex)
-                                                            ?.theme ??
-                                                        '') ==
+                                            ? 'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/trivia-master-48ll8w/assets/6lzfweb9jjgf/Regueton.png'
+                                            : (FFAppState().questions.elementAtOrNull(FFAppState().currentQuestionIndex)?.theme ?? '') ==
                                                     'MADRIDISTA'
-                                                ? 'assets/images/realmadrid.png'
-                                                : (FFAppState().questions.elementAtOrNull(FFAppState().currentQuestionIndex)?.theme ??
-                                                            '') ==
+                                                ? 'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/trivia-master-48ll8w/assets/wmp1dscls0lp/realmadrid.png'
+                                                : (FFAppState().questions.elementAtOrNull(FFAppState().currentQuestionIndex)?.theme ?? '') ==
                                                         'BARCELONISTA'
-                                                    ? 'assets/images/barcelona.png'
+                                                    ? 'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/trivia-master-48ll8w/assets/1emmw5u6j5vc/barcelona.png'
                                                     : (FFAppState()
                                                                     .questions
                                                                     .elementAtOrNull(FFAppState().currentQuestionIndex)
                                                                     ?.theme ??
                                                                 '') ==
                                                             'Cuerpo humano'
-                                                        ? 'assets/images/Esqueleto-removebg-preview.png'
+                                                        ? 'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/trivia-master-48ll8w/assets/iprk6v0j0bwy/Esqueleto-removebg-preview.png'
                                                         : (FFAppState().questions.elementAtOrNull(FFAppState().currentQuestionIndex)?.theme ?? '') == 'INVENTORES'
-                                                            ? 'assets/images/Inventores-removebg-preview.png'
+                                                            ? 'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/trivia-master-48ll8w/assets/r6t8mv0ja106/Inventores-removebg-preview.png'
                                                             : (FFAppState().questions.elementAtOrNull(FFAppState().currentQuestionIndex)?.theme ?? '') == 'HISTORIA DE ESPAÑA'
-                                                                ? 'assets/images/pp1jx13flwpr.png'
+                                                                ? 'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/trivia-master-48ll8w/assets/pp1jx13flwpr/espa%C3%B1a_1.png'
                                                                 : (FFAppState().questions.elementAtOrNull(FFAppState().currentQuestionIndex)?.theme ?? '') == 'ESO Geografía e Historia'
-                                                                    ? 'assets/images/pp1jx13flwpr.png'
-                                                                    : 'assets/images/Secundaria-removebg-preview.png',
+                                                                    ? 'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/trivia-master-48ll8w/assets/72hvygvjp67v/historia.png'
+                                                                    : (FFAppState().questions.elementAtOrNull(FFAppState().currentQuestionIndex)?.theme ?? '') == 'CINE'
+                                                                        ? 'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/trivia-master-48ll8w/assets/garx7xotl76o/cine.png'
+                                                                        : (FFAppState().questions.elementAtOrNull(FFAppState().currentQuestionIndex)?.theme ?? '') == 'CULTURA GENERAL'
+                                                                            ? 'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/trivia-master-48ll8w/assets/33iyxcuatl8b/cultura_general.png'
+                                                                            : (FFAppState().questions.elementAtOrNull(FFAppState().currentQuestionIndex)?.theme ?? '') == 'NATURALEZA'
+                                                                                ? 'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/trivia-master-48ll8w/assets/oegjaui97qf9/naturaleza.png'
+                                                                                : 'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/trivia-master-48ll8w/assets/7cujadfehb8w/Secundaria-removebg-preview.png',
                                 width: 200.0,
                                 height: 200.0,
                                 fit: BoxFit.contain,

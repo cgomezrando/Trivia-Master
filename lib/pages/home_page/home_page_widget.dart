@@ -448,7 +448,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    50.0, 0.0, 0.0, 0.0),
+                                    25.0, 0.0, 0.0, 0.0),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
                                   focusColor: Colors.transparent,
@@ -555,7 +555,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    50.0, 0.0, 0.0, 0.0),
+                                    25.0, 0.0, 0.0, 0.0),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
                                   focusColor: Colors.transparent,
@@ -625,7 +625,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                           borderRadius:
                                               BorderRadius.circular(8.0),
                                           child: Image.asset(
-                                            'assets/images/pp1jx13flwpr.png',
+                                            'assets/images/espaa_1.png',
                                             width: 125.0,
                                             height: 125.0,
                                             fit: BoxFit.cover,
@@ -647,6 +647,114 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                 ),
                                                 color: Colors.white,
                                                 fontSize: 24.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.bold,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    25.0, 0.0, 0.0, 0.0),
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    if (functions.listContains(
+                                        FFAppState().selectedThemes.toList(),
+                                        'CINE')) {
+                                      FFAppState()
+                                          .removeFromSelectedThemes('CINE');
+                                      safeSetState(() {});
+                                    } else {
+                                      FFAppState().addToSelectedThemes('CINE');
+                                      safeSetState(() {});
+                                    }
+                                  },
+                                  child: Container(
+                                    width: 200.0,
+                                    height: 200.0,
+                                    decoration: BoxDecoration(
+                                      color: Color(0xFF050C18),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          blurRadius: 30.0,
+                                          color: Colors.black,
+                                          offset: Offset(
+                                            0.0,
+                                            8.0,
+                                          ),
+                                        )
+                                      ],
+                                      borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(12.0),
+                                        topRight: Radius.circular(12.0),
+                                        bottomLeft: Radius.circular(12.0),
+                                        bottomRight: Radius.circular(12.0),
+                                      ),
+                                      border: Border.all(
+                                        color: valueOrDefault<Color>(
+                                          functions.listContains(
+                                                  FFAppState()
+                                                      .selectedThemes
+                                                      .toList(),
+                                                  'CINE')
+                                              ? Color(0xFFFFD54F)
+                                              : Color(0xFF182544),
+                                          Color(0xFF182544),
+                                        ),
+                                        width: valueOrDefault<double>(
+                                          functions.listContains(
+                                                  FFAppState()
+                                                      .selectedThemes
+                                                      .toList(),
+                                                  'CINE')
+                                              ? 6.0
+                                              : 4.0,
+                                          4.0,
+                                        ),
+                                      ),
+                                    ),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceEvenly,
+                                      children: [
+                                        ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                          child: Image.asset(
+                                            'assets/images/cine.png',
+                                            width: 125.0,
+                                            height: 125.0,
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                        Text(
+                                          'CINE',
+                                          textAlign: TextAlign.center,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                font: GoogleFonts.inter(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
+                                                color: Colors.white,
+                                                fontSize: 32.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.bold,
                                                 fontStyle:
@@ -761,7 +869,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    50.0, 0.0, 0.0, 0.0),
+                                    25.0, 0.0, 0.0, 0.0),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
                                   focusColor: Colors.transparent,
@@ -868,7 +976,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    50.0, 0.0, 0.0, 0.0),
+                                    25.0, 0.0, 0.0, 0.0),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
                                   focusColor: Colors.transparent,
@@ -946,6 +1054,113 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                         ),
                                         Text(
                                           'INVENTORES',
+                                          textAlign: TextAlign.center,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                font: GoogleFonts.inter(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
+                                                color: Colors.white,
+                                                fontSize: 26.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.bold,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    25.0, 0.0, 0.0, 0.0),
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    if (functions.listContains(
+                                        FFAppState().selectedThemes.toList(),
+                                        'NATURALEZA')) {
+                                      FFAppState().removeFromSelectedThemes(
+                                          'NATURALEZA');
+                                      safeSetState(() {});
+                                    } else {
+                                      FFAppState()
+                                          .addToSelectedThemes('NATURALEZA');
+                                      safeSetState(() {});
+                                    }
+                                  },
+                                  child: Container(
+                                    width: 200.0,
+                                    height: 200.0,
+                                    decoration: BoxDecoration(
+                                      color: Color(0xFF050C18),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          blurRadius: 30.0,
+                                          color: Colors.black,
+                                          offset: Offset(
+                                            0.0,
+                                            8.0,
+                                          ),
+                                        )
+                                      ],
+                                      borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(12.0),
+                                        topRight: Radius.circular(12.0),
+                                        bottomLeft: Radius.circular(12.0),
+                                        bottomRight: Radius.circular(12.0),
+                                      ),
+                                      border: Border.all(
+                                        color: valueOrDefault<Color>(
+                                          functions.listContains(
+                                                  FFAppState()
+                                                      .selectedThemes
+                                                      .toList(),
+                                                  'NATURALEZA')
+                                              ? Color(0xFFFFD54F)
+                                              : Color(0xFF182544),
+                                          Color(0xFF182544),
+                                        ),
+                                        width: valueOrDefault<double>(
+                                          functions.listContains(
+                                                  FFAppState()
+                                                      .selectedThemes
+                                                      .toList(),
+                                                  'NATURALEZA')
+                                              ? 6.0
+                                              : 4.0,
+                                          4.0,
+                                        ),
+                                      ),
+                                    ),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                          child: Image.asset(
+                                            'assets/images/naturaleza.png',
+                                            width: 150.0,
+                                            height: 150.0,
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                        Text(
+                                          'NATURALEZA',
                                           textAlign: TextAlign.center,
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
@@ -1087,7 +1302,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    50.0, 0.0, 0.0, 0.0),
+                                    25.0, 0.0, 0.0, 0.0),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
                                   focusColor: Colors.transparent,
@@ -1199,7 +1414,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    50.0, 0.0, 0.0, 0.0),
+                                    25.0, 0.0, 0.0, 0.0),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
                                   focusColor: Colors.transparent,
@@ -1277,6 +1492,113 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                         ),
                                         Text(
                                           'EL SABIO DE REGGAETON',
+                                          textAlign: TextAlign.center,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                font: GoogleFonts.inter(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
+                                                color: Colors.white,
+                                                fontSize: 26.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.bold,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    25.0, 0.0, 0.0, 0.0),
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    if (functions.listContains(
+                                        FFAppState().selectedThemes.toList(),
+                                        'CULTURA GENERAL')) {
+                                      FFAppState().removeFromSelectedThemes(
+                                          'CULTURA GENERAL');
+                                      safeSetState(() {});
+                                    } else {
+                                      FFAppState().addToSelectedThemes(
+                                          'CULTURA GENERAL');
+                                      safeSetState(() {});
+                                    }
+                                  },
+                                  child: Container(
+                                    width: 200.0,
+                                    height: 200.0,
+                                    decoration: BoxDecoration(
+                                      color: Color(0xFF050C18),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          blurRadius: 30.0,
+                                          color: Colors.black,
+                                          offset: Offset(
+                                            0.0,
+                                            8.0,
+                                          ),
+                                        )
+                                      ],
+                                      borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(12.0),
+                                        topRight: Radius.circular(12.0),
+                                        bottomLeft: Radius.circular(12.0),
+                                        bottomRight: Radius.circular(12.0),
+                                      ),
+                                      border: Border.all(
+                                        color: valueOrDefault<Color>(
+                                          functions.listContains(
+                                                  FFAppState()
+                                                      .selectedThemes
+                                                      .toList(),
+                                                  'CULTURA GENERAL')
+                                              ? Color(0xFFFFD54F)
+                                              : Color(0xFF182544),
+                                          Color(0xFF182544),
+                                        ),
+                                        width: valueOrDefault<double>(
+                                          functions.listContains(
+                                                  FFAppState()
+                                                      .selectedThemes
+                                                      .toList(),
+                                                  'CULTURA GENERAL')
+                                              ? 6.0
+                                              : 4.0,
+                                          4.0,
+                                        ),
+                                      ),
+                                    ),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                          child: Image.asset(
+                                            'assets/images/cultura_general.png',
+                                            width: 170.0,
+                                            height: 125.0,
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                        Text(
+                                          'CULTURA GENERAL',
                                           textAlign: TextAlign.center,
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
@@ -1788,7 +2110,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    50.0, 0.0, 0.0, 0.0),
+                                    25.0, 0.0, 0.0, 0.0),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
                                   focusColor: Colors.transparent,
@@ -1895,7 +2217,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    50.0, 0.0, 0.0, 0.0),
+                                    25.0, 0.0, 0.0, 0.0),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
                                   focusColor: Colors.transparent,
@@ -1965,7 +2287,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                           borderRadius:
                                               BorderRadius.circular(8.0),
                                           child: Image.asset(
-                                            'assets/images/pp1jx13flwpr.png',
+                                            'assets/images/espaa_1.png',
                                             width: 125.0,
                                             height: 125.0,
                                             fit: BoxFit.cover,
@@ -2002,7 +2324,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    50.0, 0.0, 0.0, 0.0),
+                                    25.0, 0.0, 0.0, 0.0),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
                                   focusColor: Colors.transparent,
@@ -2096,7 +2418,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    50.0, 0.0, 0.0, 0.0),
+                                    25.0, 0.0, 0.0, 0.0),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
                                   focusColor: Colors.transparent,
@@ -2201,19 +2523,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   ),
                                 ),
                               ),
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 50.0, 0.0, 0.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    50.0, 0.0, 0.0, 0.0),
+                                    25.0, 0.0, 0.0, 0.0),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
                                   focusColor: Colors.transparent,
@@ -2222,13 +2534,12 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   onTap: () async {
                                     if (functions.listContains(
                                         FFAppState().selectedThemes.toList(),
-                                        'INVENTORES')) {
-                                      FFAppState().removeFromSelectedThemes(
-                                          'INVENTORES');
+                                        'CINE')) {
+                                      FFAppState()
+                                          .removeFromSelectedThemes('CINE');
                                       safeSetState(() {});
                                     } else {
-                                      FFAppState()
-                                          .addToSelectedThemes('INVENTORES');
+                                      FFAppState().addToSelectedThemes('CINE');
                                       safeSetState(() {});
                                     }
                                   },
@@ -2259,7 +2570,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                   FFAppState()
                                                       .selectedThemes
                                                       .toList(),
-                                                  'INVENTORES')
+                                                  'CINE')
                                               ? Color(0xFFFFD54F)
                                               : Color(0xFF182544),
                                           Color(0xFF182544),
@@ -2269,7 +2580,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                   FFAppState()
                                                       .selectedThemes
                                                       .toList(),
-                                                  'INVENTORES')
+                                                  'CINE')
                                               ? 6.0
                                               : 4.0,
                                           4.0,
@@ -2278,19 +2589,21 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     ),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceEvenly,
                                       children: [
                                         ClipRRect(
                                           borderRadius:
                                               BorderRadius.circular(8.0),
                                           child: Image.asset(
-                                            'assets/images/Inventores-removebg-preview.png',
-                                            width: 150.0,
-                                            height: 150.0,
+                                            'assets/images/cine.png',
+                                            width: 125.0,
+                                            height: 125.0,
                                             fit: BoxFit.cover,
                                           ),
                                         ),
                                         Text(
-                                          'INVENTORES',
+                                          'CINE',
                                           textAlign: TextAlign.center,
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
@@ -2304,7 +2617,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                           .fontStyle,
                                                 ),
                                                 color: Colors.white,
-                                                fontSize: 26.0,
+                                                fontSize: 32.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.bold,
                                                 fontStyle:
@@ -2318,9 +2631,121 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   ),
                                 ),
                               ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 50.0, 0.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  if (functions.listContains(
+                                      FFAppState().selectedThemes.toList(),
+                                      'INVENTORES')) {
+                                    FFAppState()
+                                        .removeFromSelectedThemes('INVENTORES');
+                                    safeSetState(() {});
+                                  } else {
+                                    FFAppState()
+                                        .addToSelectedThemes('INVENTORES');
+                                    safeSetState(() {});
+                                  }
+                                },
+                                child: Container(
+                                  width: 200.0,
+                                  height: 200.0,
+                                  decoration: BoxDecoration(
+                                    color: Color(0xFF050C18),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        blurRadius: 30.0,
+                                        color: Colors.black,
+                                        offset: Offset(
+                                          0.0,
+                                          8.0,
+                                        ),
+                                      )
+                                    ],
+                                    borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(12.0),
+                                      topRight: Radius.circular(12.0),
+                                      bottomLeft: Radius.circular(12.0),
+                                      bottomRight: Radius.circular(12.0),
+                                    ),
+                                    border: Border.all(
+                                      color: valueOrDefault<Color>(
+                                        functions.listContains(
+                                                FFAppState()
+                                                    .selectedThemes
+                                                    .toList(),
+                                                'INVENTORES')
+                                            ? Color(0xFFFFD54F)
+                                            : Color(0xFF182544),
+                                        Color(0xFF182544),
+                                      ),
+                                      width: valueOrDefault<double>(
+                                        functions.listContains(
+                                                FFAppState()
+                                                    .selectedThemes
+                                                    .toList(),
+                                                'INVENTORES')
+                                            ? 6.0
+                                            : 4.0,
+                                        4.0,
+                                      ),
+                                    ),
+                                  ),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                        child: Image.asset(
+                                          'assets/images/Inventores-removebg-preview.png',
+                                          width: 150.0,
+                                          height: 150.0,
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      Text(
+                                        'INVENTORES',
+                                        textAlign: TextAlign.center,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              font: GoogleFonts.inter(
+                                                fontWeight: FontWeight.bold,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
+                                              color: Colors.white,
+                                              fontSize: 26.0,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.bold,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
+                                            ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    50.0, 0.0, 0.0, 0.0),
+                                    25.0, 0.0, 0.0, 0.0),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
                                   focusColor: Colors.transparent,
@@ -2427,7 +2852,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    50.0, 0.0, 0.0, 0.0),
+                                    25.0, 0.0, 0.0, 0.0),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
                                   focusColor: Colors.transparent,
@@ -2539,7 +2964,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    50.0, 0.0, 0.0, 0.0),
+                                    25.0, 0.0, 0.0, 0.0),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
                                   focusColor: Colors.transparent,
@@ -2617,6 +3042,220 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                         ),
                                         Text(
                                           'EL SABIO DE REGGAETON',
+                                          textAlign: TextAlign.center,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                font: GoogleFonts.inter(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
+                                                color: Colors.white,
+                                                fontSize: 26.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.bold,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    25.0, 0.0, 0.0, 0.0),
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    if (functions.listContains(
+                                        FFAppState().selectedThemes.toList(),
+                                        'CULTURA GENERAL')) {
+                                      FFAppState().removeFromSelectedThemes(
+                                          'CULTURA GENERAL');
+                                      safeSetState(() {});
+                                    } else {
+                                      FFAppState().addToSelectedThemes(
+                                          'CULTURA GENERAL');
+                                      safeSetState(() {});
+                                    }
+                                  },
+                                  child: Container(
+                                    width: 200.0,
+                                    height: 200.0,
+                                    decoration: BoxDecoration(
+                                      color: Color(0xFF050C18),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          blurRadius: 30.0,
+                                          color: Colors.black,
+                                          offset: Offset(
+                                            0.0,
+                                            8.0,
+                                          ),
+                                        )
+                                      ],
+                                      borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(12.0),
+                                        topRight: Radius.circular(12.0),
+                                        bottomLeft: Radius.circular(12.0),
+                                        bottomRight: Radius.circular(12.0),
+                                      ),
+                                      border: Border.all(
+                                        color: valueOrDefault<Color>(
+                                          functions.listContains(
+                                                  FFAppState()
+                                                      .selectedThemes
+                                                      .toList(),
+                                                  'CULTURA GENERAL')
+                                              ? Color(0xFFFFD54F)
+                                              : Color(0xFF182544),
+                                          Color(0xFF182544),
+                                        ),
+                                        width: valueOrDefault<double>(
+                                          functions.listContains(
+                                                  FFAppState()
+                                                      .selectedThemes
+                                                      .toList(),
+                                                  'CULTURA GENERAL')
+                                              ? 6.0
+                                              : 4.0,
+                                          4.0,
+                                        ),
+                                      ),
+                                    ),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                          child: Image.asset(
+                                            'assets/images/cultura_general.png',
+                                            width: 170.0,
+                                            height: 125.0,
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                        Text(
+                                          'CULTURA GENERAL',
+                                          textAlign: TextAlign.center,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                font: GoogleFonts.inter(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
+                                                color: Colors.white,
+                                                fontSize: 26.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.bold,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    25.0, 0.0, 0.0, 0.0),
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    if (functions.listContains(
+                                        FFAppState().selectedThemes.toList(),
+                                        'NATURALEZA')) {
+                                      FFAppState().removeFromSelectedThemes(
+                                          'NATURALEZA');
+                                      safeSetState(() {});
+                                    } else {
+                                      FFAppState()
+                                          .addToSelectedThemes('NATURALEZA');
+                                      safeSetState(() {});
+                                    }
+                                  },
+                                  child: Container(
+                                    width: 200.0,
+                                    height: 200.0,
+                                    decoration: BoxDecoration(
+                                      color: Color(0xFF050C18),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          blurRadius: 30.0,
+                                          color: Colors.black,
+                                          offset: Offset(
+                                            0.0,
+                                            8.0,
+                                          ),
+                                        )
+                                      ],
+                                      borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(12.0),
+                                        topRight: Radius.circular(12.0),
+                                        bottomLeft: Radius.circular(12.0),
+                                        bottomRight: Radius.circular(12.0),
+                                      ),
+                                      border: Border.all(
+                                        color: valueOrDefault<Color>(
+                                          functions.listContains(
+                                                  FFAppState()
+                                                      .selectedThemes
+                                                      .toList(),
+                                                  'NATURALEZA')
+                                              ? Color(0xFFFFD54F)
+                                              : Color(0xFF182544),
+                                          Color(0xFF182544),
+                                        ),
+                                        width: valueOrDefault<double>(
+                                          functions.listContains(
+                                                  FFAppState()
+                                                      .selectedThemes
+                                                      .toList(),
+                                                  'NATURALEZA')
+                                              ? 6.0
+                                              : 4.0,
+                                          4.0,
+                                        ),
+                                      ),
+                                    ),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                          child: Image.asset(
+                                            'assets/images/naturaleza.png',
+                                            width: 150.0,
+                                            height: 150.0,
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                        Text(
+                                          'NATURALEZA',
                                           textAlign: TextAlign.center,
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
