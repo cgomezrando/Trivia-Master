@@ -46,7 +46,7 @@ dependencies:
   percent_indicator: 4.2.2
   plugin_platform_interface: 2.1.8
   provider: 6.1.5
-  purchases_flutter: ^8.0.0
+  purchases_flutter: ^9.0.0
   shared_preferences: 2.5.3
   shared_preferences_android: 2.4.10
   shared_preferences_foundation: 2.5.4
